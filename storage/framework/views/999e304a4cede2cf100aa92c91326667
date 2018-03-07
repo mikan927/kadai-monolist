@@ -1,0 +1,21 @@
+<?php $__env->startSection('content'); ?>
+    <div class="search">
+        <div class="row">
+            <div class="text-center">
+                <?php echo Form::open(['route' => 'items.create', 'method' => 'get', 'class' => 'form-inline']); ?>
+
+                    <div class="form-group">
+                        <?php echo Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'キーワードを入力', 'size' => 40]); ?>
+
+                    </div>
+                    <?php echo Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']); ?>
+
+                <?php echo Form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+
+    <?php echo $__env->make('items.items', ['items' => $items], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

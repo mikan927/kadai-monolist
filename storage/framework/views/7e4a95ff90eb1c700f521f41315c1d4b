@@ -1,0 +1,34 @@
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">ログイン</div>
+            <div class="panel-body">
+                <?php echo Form::open(['route' => 'login.post']); ?>
+
+                    <div class="form-group">
+                        <?php echo form::label('email', 'メールアドレス'); ?>
+
+                        <?php echo form::email('email', old('email'), ['class' => 'form-control']); ?>
+
+                    </div>
+
+                    <div class="form-group">
+                        <?php echo form::label('password', 'パスワード'); ?>
+
+                        <?php echo form::password('password', ['class' => 'form-control']); ?>
+
+                    </div>
+
+                    <div class="text-right">
+                        <?php echo form::submit('ログイン', ['class' => 'btn btn-success']); ?>
+
+                    </div>
+                <?php echo form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
