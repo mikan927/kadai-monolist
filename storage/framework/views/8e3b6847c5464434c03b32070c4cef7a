@@ -1,0 +1,19 @@
+<?php if(Auth::user()->is_wanting($item->code)): ?>
+    <?php echo Form::open(['route' => 'item_user.dont_want', 'method' => 'delete']); ?>
+
+        <?php echo Form::hidden('itemCode', $item->code); ?>
+
+        <?php echo Form::submit('Want', ['class' => 'btn btn-success']); ?>
+
+    <?php echo Form::close(); ?>
+
+<?php else: ?>
+    <?php echo Form::open(['route' => 'item_user.want']); ?>
+
+        <?php echo Form::hidden('itemCode', $item->code); ?>
+
+        <?php echo Form::submit('Want it', ['class' => 'btn btn-primary']); ?>
+
+    <?php echo Form::close(); ?>
+
+<?php endif; ?>

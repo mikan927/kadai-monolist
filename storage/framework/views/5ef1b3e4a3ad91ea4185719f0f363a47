@@ -5,10 +5,20 @@
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <img src="<?php echo e($item->image_url); ?>" alt="">
+                            <img src="<?php echo e($item->image_url); ?>" alt="" class="">
                         </div>
                         <div class="panel-body">
-                            <p class="item-title"><a href="#"><?php echo e($item->name); ?></a></p>
+                            <?php if($item->id): ?>
+                                <p class="item-title"><a href="<?php echo e(route('items.show', $item->id)); ?>"><?php echo e($item->name); ?></a></p>
+                            <?php else: ?>
+                                <p class="item-title"><?php echo e($item->name); ?></p>
+                            <?php endif; ?>
+                            <div class="buttons text-center">
+                                <?php if(Auth::check()): ?>
+                                    <?php echo $__env->make('items.want_button', ['item' => $item], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                    <?php echo $__env->make('items.have_button', ['item' => $item], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>

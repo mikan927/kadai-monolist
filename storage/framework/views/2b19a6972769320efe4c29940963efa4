@@ -1,0 +1,31 @@
+<?php $__env->startSection('content'); ?>
+    <div class="user-profile">
+        <div class="icon text-center">
+            <img src="<?php echo e(Gravatar::src($user->email, 100) . '&d=mm'); ?>" alt="" class="img-circle">
+        </div>
+        <div class="name text-center">
+            <h1><?php echo e($user->name); ?></h1>
+        </div>
+        <div class="status text-center">
+            <ul>
+                <li>
+                    <div class="status-label">WANT</div>
+                    <div id="want_count" class="status-value">
+                        <?php echo e($count_want); ?>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="status-label">HAVE</div>
+                    <div id="have_count" class="status-value">
+                        xxx
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <?php echo $__env->make('items.items', ['items' => $items], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $items->render(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
